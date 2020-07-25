@@ -15,6 +15,7 @@
 <body>
     <div id="message">Waiting for Player 2</div>
     <div class="top-board">
+        <p class="menu-toggle" style="float: right;"><span class="menu-trigger badge badge-secondary p-2">Menu</span></p>
         <p class="leaderboard"><span class="trigger badge p-2">Leaderboard</span></p>
         <p class="replay"><a href="" class="badge badge-warning p-2" id="replay" title="Try reconnecting with user">Reconnect</a></p>
         <p class="username"><strong class="badge badge-primary badge-pill p-2">Username: </strong> <span
@@ -26,13 +27,16 @@
         <p class="moves"><strong class="badge badge-secondary badge-pill p-2">Moves:</strong> <span id="moves">0</span>
         </p>
     </div>
-    <div id="invite-friends">Invite link: 
-        <a href="" style="text-decoration: none;cursor: text;">
-            <small id="invite" style="color: #03a9f4;font-weight: bold;"></small>
-        </a>
-        Spectators:<a href="" style="text-decoration: none;cursor: text;">
-            <small id="spectate" style="color: #03a9f4;font-weight: bold;"></small>
-        </a>
+    <div id="invite-friends">
+        <div>Invite link: <a href="" style="text-decoration: none;cursor: text;" title="invite someone to play with you">
+                <small id="invite" style="color: #03a9f4;font-weight: bold;"></small>
+            </a>
+        </div>
+        <div>
+             Spectators:<a href="" style="text-decoration: none;cursor: text;" title="Let others watch your game">
+                 <small id="spectate" style="color: #03a9f4;font-weight: bold;"></small>
+             </a>
+        </div>
     </div>
     <div class="leader-board">
         <p class="loader"></p>
@@ -73,6 +77,9 @@
             </div>
         </div>
     </div>
+    <div class="footer p-2" style="background-color: #ffffffc7;">
+        <p class="text-center">made by HNG Interns ( <a href="https://hng.tech">https://hng.tech</a> )</p>
+    </div>
     <style>
         .reaction{
             font-size: 2em;
@@ -84,6 +91,9 @@
         const url2 = window.location.href.replace("create", "spectate").replace("join", "spectate").replace("game", "view");
         $("#invite").text(url);
         $("#spectate").text(url2);
+        $(".menu-toggle").on("click", ()=>{
+            $(".top-board").toggleClass("expand")
+        })
     </script>
 </body>
 </html>
